@@ -1,0 +1,11 @@
+flask
+flask-login
+mysql-connector-python
+pandas
+numpy
+scikit-learn
+scipy
+werkzeug
+requests
+python-dotenv
+gunicorn
