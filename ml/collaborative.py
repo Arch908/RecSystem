@@ -89,7 +89,7 @@ def build_svd_model(built_by=None):
     user_means    = np.mean(matrix_dense, axis=1)
     matrix_demean = matrix_dense - user_means.reshape(-1, 1)
 
-    k = min(50, min(matrix_demean.shape) - 1)
+    k = min(20, min(matrix_demean.shape) - 1)
     U, sigma, Vt = svds(matrix_demean, k=k, random_state=42)
     sigma_diag   = np.diag(sigma)
 
