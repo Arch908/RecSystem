@@ -57,7 +57,7 @@ def load_data():
     print(f"✓ Movies loaded.\n")
 
     # ── Load ratings in batches ────────────────────────────────────────────
-    sample = ratings.sample(n=min(200000, len(ratings)), random_state=42)
+    sample = ratings.sample(n=min(20000, len(ratings)), random_state=42)
     print(f"Loading {len(sample)} ratings in batches...")
 
     conn   = get_connection()
