@@ -16,19 +16,6 @@ app.config.update(
 app.register_blueprint(api_bp)
 app.register_blueprint(admin_api_bp)
 
-# ── Pre-warm ML models at startup (production only) ────────────────────────
-# Builds the SVD + TF-IDF models once, here, instead of on a user's first
-# /api/recommendations request — avoids a slow/timed-out first request.
-if os.environ.get('FLASK_ENV') == 'production':
-    with app.app_context():
-        from ml.collaborative import get_or_build_model as cf_build
-        from ml.content_based import get_or_build_model as cb_build
-        print("[Startup] Pre-warming ML models...")
-        cf_build()
-        cb_build()
-        print("[Startup] ML models ready.")
-
-
 # ── Serve React SPA for all non-API routes ────────────────────────────────
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
