@@ -260,7 +260,7 @@ def get_cold_start_movies(user_id, limit=84):
         GROUP BY m.movie_id
         HAVING COUNT(r.id) >= 3
         ORDER BY (AVG(r.rating) * LOG10(COUNT(r.id)+1)) DESC
-        LIMIT 500
+        LIMIT 150
     """)
     candidates = cursor.fetchall()
     cursor.close(); conn.close()
