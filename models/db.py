@@ -241,7 +241,7 @@ def get_cold_start_movies(user_id, limit=84):
     """Popularity fallback with a genre boost from any ratings the user already has."""
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT movie_id, rating, genres FROM ratings r JOIN movies m ON m.movie_id=r.movie_id WHERE r.user_id=%s", (user_id,))
+    cursor.execute("SELECT r.movie_id, rating, genres FROM ratings r JOIN movies m ON m.movie_id=r.movie_id WHERE r.user_id=%s", (user_id,))
     rows = cursor.fetchall()
     seen = {int(r['movie_id']) for r in rows}
     cursor.execute("SELECT movie_id FROM not_interested WHERE user_id=%s", (user_id,))
