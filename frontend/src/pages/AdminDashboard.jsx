@@ -266,7 +266,7 @@ function OverviewTab() {
 
   return (
     <div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '1rem', marginBottom: '2rem' }}>
+      <div className="admin-kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '1rem', marginBottom: '2rem' }}>
         <KpiCard label="Total Users"  value={stats.total_users}   color={GOLD} />
         <KpiCard label="Movies"       value={stats.total_movies}  color={BLUE} />
         <KpiCard label="User Ratings" value={stats.total_ratings} color={GREEN} />
@@ -433,7 +433,7 @@ function AccuracyTab() {
         <p style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>Live behavioral metric showing how often recommended movies are later rated 3.5★ or higher</p>
       </div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1rem', marginBottom: '2rem' }}>
+      <div className="admin-kpi-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '1rem', marginBottom: '2rem' }}>
         <KpiCard label="Recommendations Logged" value={liveData.total_logged.toLocaleString()} color={GOLD} />
         <KpiCard label="Later Rated"            value={liveData.rated_count.toLocaleString()}  color={BLUE}  sub={`${liveData.rated_pct}% engagement`} />
         <KpiCard label="Highly Rated (≥ 3.5★)"  value={liveData.highly_rated.toLocaleString()} color={GREEN} sub={`${liveData.accuracy_pct}% positive rate`} />

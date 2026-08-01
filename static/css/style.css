@@ -1522,3 +1522,117 @@ a.stat-chip:hover strong { color: var(--gold); }
   visibility: visible;
   opacity: 1;
 }
+/* ── MOBILE NAV ── */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.nav-hamburger span {
+  display: block;
+  height: 2px;
+  width: 18px;
+  background: var(--text-muted);
+}
+
+@media (max-width: 860px) {
+  .nav-hamburger { display: flex; }
+
+  .nav-inner { position: relative; }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1rem 1rem;
+    max-height: calc(100vh - 64px);
+    overflow-y: auto;
+  }
+
+  .nav-links.nav-links-open { display: flex; }
+
+  .nav-links .nav-link {
+    width: 100%;
+    padding: 0.85rem 0.5rem;
+    border-radius: 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-links .nav-divider { display: none; }
+
+  .nav-links .user-menu { width: 100%; margin-top: 0.5rem; }
+  .nav-links .nav-user-btn { width: 100%; justify-content: flex-start; }
+  .nav-links .user-dropdown {
+    position: static;
+    width: 100%;
+    margin-top: 0.5rem;
+    box-shadow: none;
+  }
+
+  .site-nav { padding: 0 1rem; }
+}
+/* ── MOVIE DETAIL LAYOUT ── */
+.movie-detail-page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem 4rem;
+}
+
+.movie-detail-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+.movie-detail-poster-col {
+  position: sticky;
+  top: 80px;
+}
+
+@media (max-width: 800px) {
+  .movie-detail-page { padding: 0 1rem 3rem; }
+
+  .movie-detail-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .movie-detail-poster-col {
+    position: static;
+    max-width: 260px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 640px) {
+  .movie-detail-page { padding: 0 0.5rem 3rem; }
+  .movie-detail-backdrop { height: 220px !important; margin-bottom: 1.5rem !important; }
+}
+
+/* ── ADMIN KPI GRID (mobile) ── */
+@media (max-width: 900px) {
+  .admin-kpi-grid { grid-template-columns: repeat(2, 1fr) !important; }
+}
+@media (max-width: 500px) {
+  .admin-kpi-grid { grid-template-columns: 1fr !important; }
+}

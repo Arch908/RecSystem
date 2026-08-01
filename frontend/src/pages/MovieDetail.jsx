@@ -229,7 +229,7 @@ export default function MovieDetail() {
   const cast   = movie.cast ? movie.cast.split(',').map(s => s.trim()).filter(Boolean) : []
 
   return (
-    <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 2rem 4rem' }}>
+    <div className="movie-detail-page">
 
       {/* ── Back nav ── */}
       <button onClick={() => navigate(-1)} style={{
@@ -246,7 +246,7 @@ export default function MovieDetail() {
 
       {/* ── Cinematic backdrop ── */}
       {movie.poster_url && (
-        <div style={{
+        <div className="movie-detail-backdrop" style={{
           position: 'relative', height: 340, borderRadius: 'var(--radius-lg)',
           overflow: 'hidden', marginBottom: '2.5rem',
         }}>
@@ -269,10 +269,10 @@ export default function MovieDetail() {
       )}
 
       {/* ── Main layout: poster + content ── */}
-      <div style={{ display: 'grid', gridTemplateColumns: '260px 1fr', gap: '3rem', alignItems: 'start' }}>
+      <div className="movie-detail-layout">
 
         {/* ── Left column: poster + actions ── */}
-        <div style={{ position: 'sticky', top: 80 }}>
+        <div className="movie-detail-poster-col">
           {movie.poster_url
             ? <img src={movie.poster_url} alt={title}
                 style={{ width: '100%', aspectRatio: '2/3', objectFit: 'cover', borderRadius: 'var(--radius-lg)', border: '1px solid var(--border)', boxShadow: 'var(--shadow-card)', display: 'block' }}
